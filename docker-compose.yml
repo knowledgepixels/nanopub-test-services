@@ -8,7 +8,9 @@ services:
       - rdfsink
     environment:
       - NPS_MONGODB_HOST=db
+# This prevents the server from collecting nanopubs from other servers:
       - NPS_COLLECT_NANOPUBS_ENABLED=false
+# Not setting this prevents other servers from connecting to this one:
 #      - NPS_PUBLIC_URL=http://.../
       - NPS_POST_NEW_NANOPUBS_TO=http://rdfsink:80
       - NPS_WAIT_MS_BEFORE_PEER_SCAN=1000

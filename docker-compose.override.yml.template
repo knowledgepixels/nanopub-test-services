@@ -1,5 +1,11 @@
-version: '2'
 services:
+  server:
+    environment:
+      - NPS_MONGODB_HOST=172.17.0.1  # use shared MongoDB
+      - NPS_MONGODB_DBNAME=test-nanopub-server  # to give it a name distinct from any non-test server on the same shared MongoDB instance
+  db:  # disable when shared MongoDB is used
+    deploy:
+      replicas: 0
   ldf:
     environment:
       - BASEURL=https://ldf.test.nps.YOUR.SERVER.DOMAIN/
